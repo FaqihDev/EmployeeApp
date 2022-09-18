@@ -18,10 +18,17 @@ public class EmployeeController {
 
     @Autowired
     public EmployeeController(EmployeeService employeeService) {
+
         this.employeeService = employeeService;
     }
 
     // add mapping for "/list"
+
+    @GetMapping("/home")
+    public String Home(){
+        return "employees/home";
+    }
+
     @GetMapping("/list")
     public String listEmployees(Model model){
         //get employees from db
