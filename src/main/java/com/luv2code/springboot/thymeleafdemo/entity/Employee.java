@@ -1,8 +1,19 @@
 package com.luv2code.springboot.thymeleafdemo.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
+
 @Table(name = "employee_test")
 public class Employee {
     @Id
@@ -16,15 +27,18 @@ public class Employee {
     @Column(name = "email")
     private String email;
 
-    public Employee() {
-    }
+    @Column(name = "salary")
+    private Long salary;
 
-    public Employee(int id, String firstName, String lastName, String email) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-    }
+    @Column(name = "position")
+    private String position;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "start_Date")
+    private Date startDate;
+
+    @Column(name = "age")
+    private Integer age;
 
     public Employee(String firstName, String lastName, String email) {
         this.firstName = firstName;
@@ -32,37 +46,6 @@ public class Employee {
         this.email = email;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     @Override
     public String toString() {

@@ -1,21 +1,14 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org">
-
-<head lang="en">
-    <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <title>Save Employee</title>
-</head>
+<html  xmlns:th="http://www.thymeleaf.org"
+       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{fragment/main_layout}">
 <body>
-
-  <div class="container">
+  <div layout:fragment="content">
 
     <h3>Employee Directory</h3>
     <hr>
 
-    <p class="h4 mb-4"> Save Employee</p>
+    <p class="h4 mb-4">Update Employee</p>
 
     <form action="#" th:action="@{/employees/save}"
                      th:object="${employee}" method="POST">
@@ -25,19 +18,34 @@
 
       <input type="text" th:field="*{firstName}"
              class="form-control mb-4 col-4" placeholder="First name"/>
+
       <input type="text" th:field="*{lastName}"
              class="form-control mb-4 col-4" placeholder="Last name"/>
+
       <input type="text" th:field="*{email}"
              class="form-control mb-4 col-4" placeholder="email"/>
 
-      <button type="submit" class="btn btn-info col-2">Save</button>
+      <input type="text" th:field="*{position}"
+             class="form-control mb-4 col-4" placeholder="position"/>
+
+      <input type="text" th:field="*{age}"
+             class="form-control mb-4 col-4" placeholder="age"/>
+
+      <input type="date" th:field="*{startDate}"
+             class="form-control mb-4 col-4" placeholder="Start Date" id="startDate" name="startDate"/>
+
+      <input type="text" th:field="*{salary}"
+             class="form-control mb-4 col-4" placeholder="Salary"/>
+      <div class="form-group-row">
+        <div class="col-sm-2"></div>
+         <div>
+            <input type="submit" value="Save" class="btn btn-success" >
+           <a th:href="@{/employees/list}" class="btn btn-primary" role="button">Back to List</a>
+         </div>
+      </div>
     </form>
 
     <hr>
-    <a th:href="@{/employees/list}"> Back to Employee</a>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
 </body>
 </html>

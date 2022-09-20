@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragment/main_layout}">
+
+<body>
+<div layout:fragment="content">
+
+  <h3>Employee Directory</h3>
+  <hr>
+
+  <p class="h4 mb-4">Detail Employee</p>
+
+  <form action="#" th:action="@{/employees/save}"
+        th:object="${employee}" method="POST">
+
+    <!-- Add hidden form field to handle update-->
+    <input type="hidden" th:field="*{id}" />
+
+    <div class="mb-3 row">
+      <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+      <div class="col-sm-10">
+        <input th:field="*{firstName}" type="text" readonly class="form-control-plaintext" id="firstName" >
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
+      <div class="col-sm-10">
+        <input th:field="*{lastName}" type="text" class="form-control-plaintext" id="lastName">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="email" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input th:field="*{email}" type="text" class="form-control-plaintext" id="email">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="position" class="col-sm-2 col-form-label">Position</label>
+      <div class="col-sm-10">
+        <input th:field="*{position}" type="text" class="form-control-plaintext" id="position">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="age" class="col-sm-2 col-form-label">Age</label>
+      <div class="col-sm-10">
+        <input th:field="*{age}" type="text" class="form-control-plaintext" id="age">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="startDate" class="col-sm-2 col-form-label">Start Date</label>
+      <div class="col-sm-10">
+        <input th:field="*{startDate}" type="text" class="form-control-plaintext" id="startDate">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="salary" class="col-sm-2 col-form-label">Salary</label>
+      <div class="col-sm-10">
+        <input th:field="*{salary}" type="text" class="form-control-plaintext" id="salary">
+      </div>
+    </div>
+
+<!--    <input type="text" th:field="*{firstName}"-->
+<!--           class="form-control mb-4 col-4" placeholder="First name"/>-->
+<!--    <input type="text" th:field="*{lastName}"-->
+<!--           class="form-control mb-4 col-4" placeholder="Last name"/>-->
+<!--    <input type="text" th:field="*{email}"-->
+<!--           class="form-control mb-4 col-4" placeholder="email"/>-->
+<!--    <input type="text" th:field="*{position}"-->
+<!--           class="form-control mb-4 col-4" placeholder="position"/>-->
+<!--    <input type="text" th:field="*{age}"-->
+<!--           class="form-control mb-4 col-4" placeholder="age"/>-->
+<!--    <input type="text" th:field="*{email}"-->
+<!--           class="form-control mb-4 col-4" placeholder="email"/>-->
+
+  </form>
+
+  <hr>
+  <a th:href="@{/employees/list}" class="btn btn-primary" role="button">Back to List</a>
+</div>
+
+</body>
+</html>

@@ -34,7 +34,7 @@ public class EmployeeController {
         //get employees from db
         List<Employee> theEmployee = employeeService.theEmployees();
         model.addAttribute("employees",theEmployee);
-        return "employees/list-employees";
+        return "employees/list";
     }
 
     @GetMapping("/showFormForAdd")
@@ -59,6 +59,14 @@ public class EmployeeController {
         return "employees/employee-form";
     }
 
+    @GetMapping("/showFormForDetail")
+    public String getEmployeeDetail(@RequestParam("employeeId") int theId, Model model){
+
+        Employee employee = employeeService.getEmployee(theId);
+        model.addAttribute("employee", employee);
+        return "employees/detail-employee-form";
+    }
+
     @PostMapping("/save")
     public String saveEmployee(@ModelAttribute("employee") Employee employee){
         // save the employee
@@ -72,7 +80,7 @@ public class EmployeeController {
         //delete the employee
         employeeService.deleteEmployee(theId);
         //redirect to /employee/list
-        return "redirect:/employee/list";
+        return "redirect:/employees/list";
     }
 
     @GetMapping("/search")
@@ -82,7 +90,7 @@ public class EmployeeController {
         //bind to model
         model.addAttribute("employees",theEmployee);
         //return view
-        return "/employees/list-employees";
+        return "/employees/list";
     }
 
 
